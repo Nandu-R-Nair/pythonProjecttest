@@ -1,16 +1,15 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-adasda
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+import requests
+import socket
+url = "https://finance.yahoo.com/quote/AAPL?p=AAPL&.tsrc=fin-srch"
+hostname = socket.gethostname()
+ip = socket.gethostbyname(hostname)
+print(ip)
+r = requests.get(url)
+print(r)
+prop = "Previous Close"
+print(r.status_code==200)
+t = r.text
+ind = (t.index("Previous Close"))
+redtex = t[ind:].split("</span>")[1]
+val = redtex.split(">")[-1]
+print(val)
