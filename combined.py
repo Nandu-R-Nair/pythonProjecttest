@@ -71,7 +71,7 @@ else:
     writer = csv.writer(f)
     key_name.insert(0,"symbol")
     writer.writerow(key_name)
-for i in range(30):
+for i in range(len(tickerSymbol)):
     print(tickerSymbol[i])
     site = tickerSymbol[i]
     url = "https://finance.yahoo.com/quote/"+site+"?p="+site+"&.tsrc=fin-srch"
